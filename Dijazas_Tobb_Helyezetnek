@@ -25,12 +25,13 @@ int main()
       }
 
   }
-  if(H[n]==H[n-1]+2)
-  {
+  if((H[n]==H[n-1]+2)&&(H[1]==H[2]-2))
+{
     H[1]++;
     H[n]--;
-  }
-   for(int j=n;j>=1;j--)
+for(int j=n;j>=1;j--)
             fout<<H[j]<<' ';
+  }
+   
        return 0;
 }
