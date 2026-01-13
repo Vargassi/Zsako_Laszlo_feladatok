@@ -1,0 +1,36 @@
+#include <fstream>
+using namespace std;
+ifstream fin("standard.in");
+ofstream fout("standard.out");
+int H[20];
+int main()
+{
+  int osszeg,n,s=0;
+  fin>>n>>osszeg;
+  for(int i=n;i>=1;i--)
+      {H[i]=i; s=s+i;}
+   H[n]+=osszeg-s;
+ for(int i=n;i>=1;i--)
+    fout<<H[i]<<' ';
+    fout<<endl;
+  for(int i=n;i>1;i--)
+  {
+      while(H[i]>H[i-1]+2)
+      {
+          H[i]--;
+          H[i-1]++;
+          for(int j=n;j>=1;j--)
+            fout<<H[j]<<' ';
+           fout<<endl;
+      }
+
+  }
+  if(H[n]==H[n-1]+2)
+  {
+    H[1]++;
+    H[n]--;
+  }
+   for(int j=n;j>=1;j--)
+            fout<<H[j]<<' ';
+       return 0;
+}
